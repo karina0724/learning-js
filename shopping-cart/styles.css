@@ -10,13 +10,13 @@ body{
 }
 
 header{
-    height: 150px;
+    height: 100px;
     padding: 30px 25px;
-    background-color: #3a86ff;
+    background-color: #3a85ff94;
+    color: #fff;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: #fff;
 }
 
 header h1{
@@ -34,6 +34,45 @@ header nav a{
     font-size: 16px;
 }
 
-header nav .carrito{
-    font-size: 20px;
+header nav .shopping-car{
+    display: inline-block;
+}
+
+header nav .shopping-car .carrito{
+    font-size: 22px;
+    z-index: 0;
+}
+
+header nav .shopping-car .items-to-shop{
+    background: #ff3a6bec;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px;
+    border-radius: 100%;
+    position:relative;
+    z-index: 1;
+    right: 40px;
+    top: 10px;
+}
+
+main{
+    margin: auto;
+	width: 100%;
+	max-width: 65%;
+	display: flex;
+    margin-top: 40px;
+}
+
+.categories{
+    font-weight: 300;
+    width: 30%;
+}
+
+.categories h3{
+    /* color: rgb(107, 105, 105); */
+}
+
+.current-categories{
+    text-align:left;
+    width: 70%;
 }
