@@ -28,11 +28,9 @@ function getPhotos(images){
                                     <option>9</option>
                                     <option>10</option>
                                 </select>     
-                                <div>
-                                    <button class="btn add-car">Añadir<i class="fas fa-cart-plus"></i></button>
-                                    <button class="btn shop" >Comprar<i class="fas fa-shopping-cart"></i></i></button>   
-                                </div>    
-                             </div>                                    
+                                <button class="btn add-car">Añadir<i class="fas fa-cart-plus"></i></button>
+                                <button class="btn shop" >Comprar<i class="fas fa-shopping-cart"></i></i></button>        
+                             </div>                            
                          </div>`;
         });
         containerProducts.innerHTML = imageTag;

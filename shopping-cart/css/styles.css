@@ -121,6 +121,7 @@ ul li:before {
 
 .current-category .products .product{
     width: 260px;
+    /* position: relative; */
 }
 
 .product img{
@@ -157,12 +158,16 @@ ul li:before {
 .product .actions {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  /* position: absolute;
+  bottom: 0; */
 }
 
 .product .actions select {
   background-color: transparent;
   border: 1px solid rgb(221, 220, 220);
   width: 60px;
+  padding: 5px;
 }
 
 .product .actions .btn{
