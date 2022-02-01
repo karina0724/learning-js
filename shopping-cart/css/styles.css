@@ -1,6 +1,7 @@
 :root {
   --main-bg-color: #016fb9;
-  --secondary-color: #cbdae4;
+  --red-color: #ff3a6bec;
+  --secondary-color: rgb(130, 130, 133);
 }
 
 * {
@@ -12,6 +13,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
+  /* background: #f3f5f5; */
 }
 
 header {
@@ -49,7 +51,7 @@ header nav .shopping-car .carrito {
 }
 
 header nav .shopping-car .items-to-shop {
-  background: #ff3a6bec;
+  background: var(--red-color);
   font-size: 12px;
   font-weight: 600;
   padding: 3px;
@@ -61,17 +63,15 @@ header nav .shopping-car .items-to-shop {
 }
 
 main {
-  margin: auto;
   width: 100%;
-  max-width: 65%;
   display: flex;
-  margin-top: 40px;
+  margin-top: 3.5%;
 }
 
 .categories {
   margin-top: 100px;
-  width: 30%;
-  margin-right: 80px;
+  width: 20%;
+  padding-left: 5%;
 }
 
 .title{
@@ -86,9 +86,9 @@ ul {
 }
 
 ul li {
-  display: inline-block;
   position: relative;
   font-weight: 300;
+  list-style: none;
 }
 
 ul li:not(:last-child) {
@@ -107,16 +107,81 @@ ul li:before {
   border-radius: 50%;
 }
 
+.current-category{
+  width: 80%;
+}
+
 .current-category .products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
   align-content: center;
-  gap: 55px 20px;
+  gap: 50px;
 }
 
 .current-category .products .product{
-    width: 250px;
-    border-radius: 10px;
+    width: 260px;
+}
+
+.product img{
+  max-width: 100%;
+  vertical-align: top;
+  border-radius: 4px;
+}
+
+.product .description{
+  line-height: 25px;
+  margin-top: 10px;
+}
+
+.product .description .product-title{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.product .description .price{
+  margin: 10px 0 10px 0;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.product .description .wish{
+  float: right;
+  font-size: 18px;
+  color: #b90101;
+  position: relative;
+  top: 10px;
+}
+
+.product .actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product .actions select {
+  background-color: transparent;
+  border: 1px solid rgb(221, 220, 220);
+  width: 60px;
+}
+
+.product .actions .btn{
+  border: none;
+  padding: 10px;
+  color: #ffff;
+}
+
+.product .actions .add-car{
+  background-color: var(--secondary-color);
+}
+
+.product .actions .shop{
+  background-color: var(--main-bg-color);
+}
+
+.product .actions .add-car i,
+.product .actions .shop i
+{
+  margin-left: 10px;
 }
 

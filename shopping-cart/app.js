@@ -11,13 +11,28 @@ function getPhotos(images){
                                  <img src="${image.src.tiny}" alt="${image.alt}">
                              </div>
                              <div class="description">
-                                 <p>${image.alt}</p>
-                                 <p>RD$ 100.00</p>
-                                 <button>Añadir al carrito</button>
-                                 <button>Comprar <i class="fas fa-shopping-cart"></i></button>
-                                 <span><i class="fas fa-cart-plus"></i><span/>
-                                 <span><i class="fas fa-heart"></i></span>
-                             </div>
+                                <p class="product-title">${image.alt}</p>
+                                <p class="price">RD$ 100.00</p>
+                                <span class="wish"><i class="fas fa-heart"></i></span>
+                             </div>                                                           
+                             <div class="actions">
+                                <select id="quantity">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>     
+                                <div>
+                                    <button class="btn add-car">Añadir<i class="fas fa-cart-plus"></i></button>
+                                    <button class="btn shop" >Comprar<i class="fas fa-shopping-cart"></i></i></button>   
+                                </div>    
+                             </div>                                    
                          </div>`;
         });
         containerProducts.innerHTML = imageTag;
