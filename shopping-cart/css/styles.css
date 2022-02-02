@@ -13,7 +13,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  /* background: #f3f5f5; */
+  background: #f3f5f5;
 }
 
 header {
@@ -138,6 +138,7 @@ ul li:before {
 .product .description .product-title{
   font-size: 14px;
   font-weight: 400;
+  height: 60px;
 }
 
 .product .description .price{
