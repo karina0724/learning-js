@@ -2,8 +2,10 @@
 const containerProducts = document.querySelector(".products");
 const categoryName = document.getElementById('category-name');
 const categories = Array.from(document.getElementsByClassName("category"));
+let addCarButton;
+let productsCar = [];
 
-function getPhotos(images){
+const getPhotos = (images) => {
         let imageTag = "";
         images.map(image => {
             imageTag += `<div class="product" id="${image.id}">
@@ -13,7 +15,7 @@ function getPhotos(images){
                              <div class="description">
                                 <p class="product-title">${image.alt}</p>
                                 <p class="price">RD$ 100.00</p>
-                                <span class="wish" id="favorite"><i class="fas fa-heart"></i></span>
+                                <span class="wish"><i class="fas fa-heart"></i></span>
                              </div>                                                           
                              <div class="actions">
                                 <select id="quantity">
@@ -28,12 +30,13 @@ function getPhotos(images){
                                     <option>9</option>
                                     <option>10</option>
                                 </select>     
-                                <button class="btn add-car" id="add-car">Añadir<i class="fas fa-cart-plus"></i></button>
-                                <button class="btn shop" id="shop">Comprar<i class="fas fa-shopping-cart"></i></i></button>        
+                                <button class="btn add-car">Añadir<i class="fas fa-cart-plus"></i></button>
+                                <button class="btn shop">Comprar<i class="fas fa-shopping-cart"></i></i></button>        
                              </div>                            
                          </div>`;
         });
         containerProducts.innerHTML = imageTag;
+        return images;
 }
 
 export async function pexelsApi(search, quantity=10){
@@ -55,3 +58,26 @@ categories.forEach(category => {
         pexelsApi(category);
     })
 })
+
+//Add Cart
+function addCart(id, images){
+    addCarButton = Array.from(document.getElementsByClassName("add-car"));
+    addCarButton.forEach(element => {
+        element.addEventListener('click', function(){
+           console.log(images);
+           if(images.id === id){
+               removeCart()//Dentro de ese metodo debo colocar que elimine el producto con el indice indicado
+           }else{
+               productsCar.push(getProduct());//Añadir el producto
+           }
+        });
+    });
+}
+
+function getProduct(image){
+    return{
+        id: image.id,
+        src: image.src.tiny,
+        alt: image.alt
+    }
+}
