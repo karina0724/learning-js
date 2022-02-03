@@ -13,7 +13,7 @@ function getPhotos(images){
                              <div class="description">
                                 <p class="product-title">${image.alt}</p>
                                 <p class="price">RD$ 100.00</p>
-                                <span class="wish"><i class="fas fa-heart"></i></span>
+                                <span class="wish" id="favorite"><i class="fas fa-heart"></i></span>
                              </div>                                                           
                              <div class="actions">
                                 <select id="quantity">
@@ -28,8 +28,8 @@ function getPhotos(images){
                                     <option>9</option>
                                     <option>10</option>
                                 </select>     
-                                <button class="btn add-car">Añadir<i class="fas fa-cart-plus"></i></button>
-                                <button class="btn shop" >Comprar<i class="fas fa-shopping-cart"></i></i></button>        
+                                <button class="btn add-car" id="add-car">Añadir<i class="fas fa-cart-plus"></i></button>
+                                <button class="btn shop" id="shop">Comprar<i class="fas fa-shopping-cart"></i></i></button>        
                              </div>                            
                          </div>`;
         });
