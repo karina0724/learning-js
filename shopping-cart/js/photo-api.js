@@ -36,7 +36,8 @@ const getPhotos = (images) => {
                          </div>`;
         });
         containerProducts.innerHTML = imageTag;
-        return images;
+        addCarButton = Array.from(document.getElementsByClassName("add-car"));
+        //return images;
 }
 
 export async function pexelsApi(search, quantity=10){
@@ -60,24 +61,31 @@ categories.forEach(category => {
 })
 
 //Add Cart
-function addCart(id, images){
-    addCarButton = Array.from(document.getElementsByClassName("add-car"));
+function addCart(image, images){
+   
     addCarButton.forEach(element => {
         element.addEventListener('click', function(){
-           console.log(images);
-           if(images.id === id){
-               removeCart()//Dentro de ese metodo debo colocar que elimine el producto con el indice indicado
-           }else{
-               productsCar.push(getProduct());//Añadir el producto
-           }
+            getProduct(image);
+        //    if(images.id === id){
+        //        removeCart()//Dentro de ese metodo debo colocar que elimine el producto con el indice indicado
+        //    }else{
+        //        productsCar.push(getProduct());//Añadir el producto
+        //    }
         });
     });
 }
 
 function getProduct(image){
-    return{
-        id: image.id,
-        src: image.src.tiny,
-        alt: image.alt
-    }
+    console.log(image);
+    // return{
+    //     id: image.id,
+    //     src: image.src.tiny,
+    //     alt: image.alt
+    // }
 }
+
+//Si ya tengo los datos del producto que se muestran buscar la manera de no crear mas variables que almacenen la misma informacion
+//sino crear una copia
+
+//con las imagenes que esta retornando del getPhotos, creare un array con los ids de las fotos que mando el api, 
+//de manera que cuando pase de una categoria a otra si cambia de imagenes aun tengo el id del producto que añadi

@@ -28,11 +28,13 @@ header {
   align-items: center;
 }
 
-header h1 {
+header h1 a{
   font-weight: 500;
   font-family: "Shadows Into Light", cursive;
   letter-spacing: 2px;
   font-size: 35px;
+  text-decoration: none;
+  color: #fff;
 }
 
 header nav a {
