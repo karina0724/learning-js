@@ -3,8 +3,8 @@ const containerProducts = document.querySelector(".products");
 const categoryName = document.getElementById('category-name');
 const categories = Array.from(document.getElementsByClassName("category"));
 let addCarButton = [],
-    addFavoriteButton = []
     productsCar = [],
+    addFavoriteEventButton = [],
     favoritesProducts = [];
  
 ////UPLOAD AND SHOW PHOTOS FROM PEXELS API
@@ -41,10 +41,18 @@ const getPhotos = (images) => {
 
         containerProducts.innerHTML = imageTag;
         addCarButton = Array.from(document.getElementsByClassName("add-car"));
+        addFavoriteEventButton = Array.from(document.getElementsByClassName("wish"));
 
         addCarButton.forEach(element => {
             element.addEventListener('click', function(){
                 addCart(this);  
+            });
+        });
+
+        addFavoriteEventButton.forEach(element => {
+            element.addEventListener('click', function(){
+                addFavoriteProduct(this); 
+                element.classList.toggle('color-red');
             });
         });
         
@@ -81,15 +89,14 @@ function addCart(product){
     let productDom = document.getElementById(product_id);
     let quantity = productDom.children[2].firstElementChild.value;
     let price = productDom.children[1].children[1].innerText;
-    console.log([product_id, quantity, price]);
+    let verifyIsProductSelected = productsCar.filter(product => product.includes(product_id));
 
-    if(productsCar.includes(product_id)){
+    if(verifyIsProductSelected.length >= 1){
         alert('Este elemento ya existe');
     }else{
         productsCar.push([product_id, quantity, price]);
-        document.getElementById('quantity-products-shop').innerText = productsCar.length;
-        console.log(productsCar);//Añadir el producto
-    }   
+    }
+    console.log(productsCar);
 }
 
 //Update Product
@@ -106,7 +113,26 @@ function removeCart(product_id){
  }
 
  //FAVORITE PRODUCTS METHODS
+//Add Favorite Product
+function addFavoriteProduct(product){
+    let product_id = product.parentNode.parentNode.id;
+    let productDom = document.getElementById(product_id);
+    let quantity = productDom.children[2].firstElementChild.value;
+    let price = productDom.children[1].children[1].innerText;
+    let verifyIsProductSelected = favoritesProducts.filter(product => product.includes(product_id));
 
+    if(verifyIsProductSelected.length >= 1){
+        removeFavoriteProduct(verifyIsProductSelected);
+    }else{
+        favoritesProducts.push([product_id, quantity, price]);
+    }
+    console.log(favoritesProducts);
+}
+
+//Remove Favorite Product
+function removeFavoriteProduct(product){
+    console.log(product)
+}
 
 /** Requisitos a tomar en cuenta */
 /**
@@ -117,4 +143,6 @@ function removeCart(product_id){
   * 
   * En el apartado de ver los productos favoritos debe tener tambien un toggle para eliminar el favorito, para añadir al carrito o pagar comprar.
   * Si es comprar se manda a la ventana del proceso para comprar articulo.
+  * 
+  * Al final ver si se puede crear alguna funcion para agregar los eventos
 */

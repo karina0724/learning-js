@@ -1,8 +1,9 @@
 :root {
   --main-bg-color: #016fb9;
-  --red-color: #ff3a6bec;
   --secondary-color: rgb(130, 130, 133);
-  --wish-product-color: #b90101;
+  --red-counter-color: #ff3a6bec;
+  --favorite-product-color: #b90101;
+  --heart-default-color: rgb(187 187 187 / 1);
   --gray-light-color: rgb(221, 220, 220);
 }
 
@@ -75,7 +76,7 @@ header nav .favorite-products .heart
 
 header nav .shopping-car .items-to-shop,
 header nav .favorite-products .favorites-items {
-  background: var(--red-color);
+  background: var(--red-counter-color);
   font-size: 12px;
   font-weight: 600;
   padding: 3px 8px;/*Si la cantidad es mayor a 0 : padding: 3px;*/
@@ -183,11 +184,15 @@ ul li:before {
 .product .description .wish{
   float: right;
   font-size: 18px;
-  color: var(--secondary-color);
+  color: var(--heart-default-color);
   position: relative;
   top: 10px;
   cursor: pointer;
   transition: all 250ms ease;
+}
+
+.color-red{
+  color: var(--favorite-product-color) !important;
 }
 
 .product .description .wish:hover{
