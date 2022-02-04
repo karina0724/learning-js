@@ -45,7 +45,7 @@ const getPhotos = (images) => {
                 addCart(this);  
             });
         });
-        //return images;
+        
 }
 
 export async function pexelsApi(search, quantity=10){
@@ -70,23 +70,26 @@ categories.forEach(category => {
 
 //Add Product
 function addCart(product){
-  if(productsCar.length > 0){
-    productsCar.forEach((element) => {
-        if(element === product.id){
-            alert('Este elemento ya existe');
-            console.log(productsCar);
-            return false;
-        }
-     });
-  }
-  productsCar.push(product.parentNode.parentNode.id);
-  console.log(productsCar);//Añadir el producto
+    let product_id = product.parentNode.parentNode.id;
+    let quantity = product.parentNode.previousSibling;
+    console.log(quantity);
+    let price;
+    if(productsCar.includes(product_id)){
+        alert('Este elemento ya existe');
+    }else{
+        productsCar.push(product_id);
+        console.log(productsCar);//Añadir el producto
+    }   
+}
+
+function Product(product_id, quantity, price){
+    return { product_id, quantity, price }
 }
 
 //Remove Product
-function removeCart(productID){
+function removeCart(product_id){
     productsCar.forEach((element, index) => {
-        if(element === productID){
+        if(element === product_id){
             console.log('Producto eliminado');
             productsCar.splice(index, 1);
         }
