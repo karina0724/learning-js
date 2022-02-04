@@ -2,8 +2,9 @@
 const containerProducts = document.querySelector(".products");
 const categoryName = document.getElementById('category-name');
 const categories = Array.from(document.getElementsByClassName("category"));
-let addCarButton;
-let productsCar = [];
+let addCarButton = [],
+    productsCar = [],
+    favoritesProducts = [];
 
 const getPhotos = (images) => {
         let imageTag = "";
@@ -35,8 +36,15 @@ const getPhotos = (images) => {
                              </div>                            
                          </div>`;
         });
+
         containerProducts.innerHTML = imageTag;
         addCarButton = Array.from(document.getElementsByClassName("add-car"));
+
+        addCarButton.forEach(element => {
+            element.addEventListener('click', function(){
+                addCart(this);  
+            });
+        });
         //return images;
 }
 
@@ -60,29 +68,34 @@ categories.forEach(category => {
     })
 })
 
-//Add Cart
-function addCart(image, images){
-   
-    addCarButton.forEach(element => {
-        element.addEventListener('click', function(){
-            getProduct(image);
-        //    if(images.id === id){
-        //        removeCart()//Dentro de ese metodo debo colocar que elimine el producto con el indice indicado
-        //    }else{
-        //        productsCar.push(getProduct());//Añadir el producto
-        //    }
-        });
-    });
+//Add Product
+function addCart(product){
+  if(productsCar.length > 0){
+    productsCar.forEach((element) => {
+        if(element === product.id){
+            alert('Este elemento ya existe');
+            console.log(productsCar);
+            return false;
+        }
+     });
+  }
+  productsCar.push(product.parentNode.parentNode.id);
+  console.log(productsCar);//Añadir el producto
 }
 
-function getProduct(image){
-    console.log(image);
-    // return{
-    //     id: image.id,
-    //     src: image.src.tiny,
-    //     alt: image.alt
-    // }
-}
+//Remove Product
+function removeCart(productID){
+    productsCar.forEach((element, index) => {
+        if(element === productID){
+            console.log('Producto eliminado');
+            productsCar.splice(index, 1);
+        }
+    });
+ }
+
+// function getProduct(product){
+//     return [this.parentNode.parentNode.id, product.src.tiny, product.alt]
+// }
 
 //Si ya tengo los datos del producto que se muestran buscar la manera de no crear mas variables que almacenen la misma informacion
 //sino crear una copia
