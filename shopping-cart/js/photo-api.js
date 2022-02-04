@@ -1,11 +1,13 @@
-//UPLOAD AND SHOW PHOTOS FROM PEXELS API
+//VARIABLES
 const containerProducts = document.querySelector(".products");
 const categoryName = document.getElementById('category-name');
 const categories = Array.from(document.getElementsByClassName("category"));
 let addCarButton = [],
+    addFavoriteButton = []
     productsCar = [],
     favoritesProducts = [];
-
+ 
+////UPLOAD AND SHOW PHOTOS FROM PEXELS API
 const getPhotos = (images) => {
         let imageTag = "";
         images.map(image => {
@@ -68,40 +70,51 @@ categories.forEach(category => {
     })
 })
 
+//CART METHODS
+// function Product(product_id, quantity, price){
+//     return [product_id, quantity, price];
+// }
+
 //Add Product
 function addCart(product){
     let product_id = product.parentNode.parentNode.id;
-    let quantity = product.parentNode.previousSibling;
-    console.log(quantity);
-    let price;
+    let productDom = document.getElementById(product_id);
+    let quantity = productDom.children[2].firstElementChild.value;
+    let price = productDom.children[1].children[1].innerText;
+    console.log([product_id, quantity, price]);
+
     if(productsCar.includes(product_id)){
         alert('Este elemento ya existe');
     }else{
-        productsCar.push(product_id);
+        productsCar.push([product_id, quantity, price]);
+        document.getElementById('quantity-products-shop').innerText = productsCar.length;
         console.log(productsCar);//Añadir el producto
     }   
 }
 
-function Product(product_id, quantity, price){
-    return { product_id, quantity, price }
+//Update Product
+function updateProduct(){
+
 }
 
 //Remove Product
 function removeCart(product_id){
-    productsCar.forEach((element, index) => {
-        if(element === product_id){
-            console.log('Producto eliminado');
-            productsCar.splice(index, 1);
-        }
-    });
+    if(productsCar.includes(product_id)){
+        console.log('Producto eliminado');
+        productsCar.splice(index, 1);
+    }
  }
 
-// function getProduct(product){
-//     return [this.parentNode.parentNode.id, product.src.tiny, product.alt]
-// }
+ //FAVORITE PRODUCTS METHODS
 
-//Si ya tengo los datos del producto que se muestran buscar la manera de no crear mas variables que almacenen la misma informacion
-//sino crear una copia
 
-//con las imagenes que esta retornando del getPhotos, creare un array con los ids de las fotos que mando el api, 
-//de manera que cuando pase de una categoria a otra si cambia de imagenes aun tengo el id del producto que añadi
+/** Requisitos a tomar en cuenta */
+/**
+  * Debo modificar la informacion de los productos en la vista principal y en la vista de detalle del carrito.
+  * 
+  * Para modificar un producto si cambio el select debo verificar si existe en el carrito sino existe ahi no se hace nada
+  * pero si existe se debe modificar el carrito de compras.
+  * 
+  * En el apartado de ver los productos favoritos debe tener tambien un toggle para eliminar el favorito, para añadir al carrito o pagar comprar.
+  * Si es comprar se manda a la ventana del proceso para comprar articulo.
+*/
