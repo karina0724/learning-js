@@ -6,6 +6,7 @@ let addCarButton = [],
     productsCar = [],
     addFavoriteEventButton = [],
     favoritesProducts = [];
+let carQuantity = document.getElementById('quantity-products-shop');
  
 ////UPLOAD AND SHOW PHOTOS FROM PEXELS API
 const getPhotos = (images) => {
@@ -95,6 +96,7 @@ function addCart(product){
         alert('Este elemento ya existe');
     }else{
         productsCar.push([product_id, quantity, price]);
+        carQuantity.innerText = productsCar.length;
     }
     console.log(productsCar);
 }
@@ -120,9 +122,11 @@ function addFavoriteProduct(product){
     let quantity = productDom.children[2].firstElementChild.value;
     let price = productDom.children[1].children[1].innerText;
     let verifyIsProductSelected = favoritesProducts.filter(product => product.includes(product_id));
-
+ 
     if(verifyIsProductSelected.length >= 1){
-        removeFavoriteProduct(verifyIsProductSelected);
+        //solucion a  eliminar de un arreglo
+        favoritesProducts = favoritesProducts.filter(product => !product.includes(product_id));
+        console.log(favoritesProducts, 'product restante');
     }else{
         favoritesProducts.push([product_id, quantity, price]);
     }
@@ -131,7 +135,8 @@ function addFavoriteProduct(product){
 
 //Remove Favorite Product
 function removeFavoriteProduct(product){
-    console.log(product)
+    let tmpFavorite = favoritesProducts
+    favoritesProducts.splice(index, 1);
 }
 
 /** Requisitos a tomar en cuenta */
