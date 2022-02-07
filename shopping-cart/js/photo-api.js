@@ -63,8 +63,7 @@ const getPhotos = (images) => {
         //ponerle la condicion de que haga eso si ya el producto existe
         selectInputs.forEach(element => {
             element.addEventListener('change', function(event){
-                //alert(event.target.value);
-                updateQuantityProduct(this);
+                updateQuantityProduct(this, event.target.value);
             });
         }) 
 }
@@ -107,12 +106,10 @@ function addCart(product){
 }
 
 //Update Product
-function updateQuantityProduct(product, quantity = 0){
+function updateQuantityProduct(product, quantity){
     let product_id = product.parentNode.parentNode.id;
     productsCar.forEach((element, index) => {
-        if(element[index].includes(product_id)){
-            productsCar[index][1] = 10;
-        }
+        if(productsCar[index].includes(product_id)) productsCar[index][1] = quantity;
     });
     console.log('producto modificado', productsCar);
 }
@@ -129,7 +126,6 @@ function addFavoriteProduct(product){
     if(verifyIfProductSelected.length >= 1){
         //DELETE PRODUCT OF FAVORTITE-PRODUCTS LIST
         favoritesProducts = favoritesProducts.filter(product => !product.includes(product_id));
-        console.log(favoritesProducts, 'product restante');
     }else{
         favoritesProducts.push([product_id, quantity, price]);
     }

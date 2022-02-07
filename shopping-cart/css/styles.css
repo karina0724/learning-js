@@ -246,3 +246,15 @@ ul li:before {
   margin-left: 10px;
 }
 
+.favorites-detail{
+  background: rgba(255, 255, 255, .1);
+  display: flex;
+  /* position: relative;
+  float: left; */
+}
+
+.favorites-detail .image img{
+  width: 50px;
+  border-radius: 50%;
+  vertical-align: top;
+}
