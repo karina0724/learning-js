@@ -5,9 +5,11 @@ const categories = Array.from(document.getElementsByClassName("category"));
 let addCarButton = [],
     productsCar = [],
     addFavoriteEventButton = [],
-    favoritesProducts = [];
-let carQuantity = document.getElementById('quantity-products-shop');
- 
+    favoritesProducts = [],
+    selectInputs = [];
+let carQuantity = document.getElementById('quantity-products-shop'),
+    favoritesQuantity = document.getElementById('quantity-favorite-products');
+    
 ////UPLOAD AND SHOW PHOTOS FROM PEXELS API
 const getPhotos = (images) => {
         let imageTag = "";
@@ -22,7 +24,7 @@ const getPhotos = (images) => {
                                 <span class="wish"><i class="fas fa-heart"></i></span>
                              </div>                                                           
                              <div class="actions">
-                                <select id="quantity">
+                                <select id="quantity" class="quantity-product">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -43,6 +45,7 @@ const getPhotos = (images) => {
         containerProducts.innerHTML = imageTag;
         addCarButton = Array.from(document.getElementsByClassName("add-car"));
         addFavoriteEventButton = Array.from(document.getElementsByClassName("wish"));
+        selectInputs = Array.from(document.getElementsByClassName("quantity-product"));
 
         addCarButton.forEach(element => {
             element.addEventListener('click', function(){
@@ -56,7 +59,14 @@ const getPhotos = (images) => {
                 element.classList.toggle('color-red');
             });
         });
-        
+
+        //ponerle la condicion de que haga eso si ya el producto existe
+        selectInputs.forEach(element => {
+            element.addEventListener('change', function(event){
+                //alert(event.target.value);
+                updateQuantityProduct(this);
+            });
+        }) 
 }
 
 export async function pexelsApi(search, quantity=10){
@@ -79,68 +89,58 @@ categories.forEach(category => {
     })
 })
 
-//CART METHODS
-// function Product(product_id, quantity, price){
-//     return [product_id, quantity, price];
-// }
-
 //Add Product
 function addCart(product){
     let product_id = product.parentNode.parentNode.id;
     let productDom = document.getElementById(product_id);
     let quantity = productDom.children[2].firstElementChild.value;
     let price = productDom.children[1].children[1].innerText;
-    let verifyIsProductSelected = productsCar.filter(product => product.includes(product_id));
+    let verifyIfProductExist = productsCar.filter(product => product.includes(product_id));
 
-    if(verifyIsProductSelected.length >= 1){
-        alert('Este elemento ya existe');
-    }else{
+    if(!verifyIfProductExist.length >= 1){
         productsCar.push([product_id, quantity, price]);
-        carQuantity.innerText = productsCar.length;
+    }else{
+        alert('Este elemento ya existe');//Eliminar eso despues que haga la animacion en js
     }
+    carQuantity.innerText = productsCar.length;
     console.log(productsCar);
 }
 
 //Update Product
-function updateProduct(){
-
+function updateQuantityProduct(product, quantity = 0){
+    let product_id = product.parentNode.parentNode.id;
+    productsCar.forEach((element, index) => {
+        if(element[index].includes(product_id)){
+            productsCar[index][1] = 10;
+        }
+    });
+    console.log('producto modificado', productsCar);
 }
 
-//Remove Product
-function removeCart(product_id){
-    if(productsCar.includes(product_id)){
-        console.log('Producto eliminado');
-        productsCar.splice(index, 1);
-    }
- }
-
- //FAVORITE PRODUCTS METHODS
+//FAVORITE PRODUCTS METHODS
 //Add Favorite Product
 function addFavoriteProduct(product){
     let product_id = product.parentNode.parentNode.id;
     let productDom = document.getElementById(product_id);
     let quantity = productDom.children[2].firstElementChild.value;
     let price = productDom.children[1].children[1].innerText;
-    let verifyIsProductSelected = favoritesProducts.filter(product => product.includes(product_id));
+    let verifyIfProductSelected = favoritesProducts.filter(product => product.includes(product_id));
  
-    if(verifyIsProductSelected.length >= 1){
-        //solucion a  eliminar de un arreglo
+    if(verifyIfProductSelected.length >= 1){
+        //DELETE PRODUCT OF FAVORTITE-PRODUCTS LIST
         favoritesProducts = favoritesProducts.filter(product => !product.includes(product_id));
         console.log(favoritesProducts, 'product restante');
     }else{
         favoritesProducts.push([product_id, quantity, price]);
     }
+    favoritesQuantity.innerText = favoritesProducts.length;
     console.log(favoritesProducts);
-}
-
-//Remove Favorite Product
-function removeFavoriteProduct(product){
-    let tmpFavorite = favoritesProducts
-    favoritesProducts.splice(index, 1);
 }
 
 /** Requisitos a tomar en cuenta */
 /**
+  * Buscar una manera de tomar el product id y ponerlo general en cada input
+  * 
   * Debo modificar la informacion de los productos en la vista principal y en la vista de detalle del carrito.
   * 
   * Para modificar un producto si cambio el select debo verificar si existe en el carrito sino existe ahi no se hace nada
@@ -150,4 +150,21 @@ function removeFavoriteProduct(product){
   * Si es comprar se manda a la ventana del proceso para comprar articulo.
   * 
   * Al final ver si se puede crear alguna funcion para agregar los eventos
+  * 
+  * Si doy click dos veces en añadir carrito se si ya esta seleccionado que se incremente ese producto
+*/
+
+/** Ideas de diseño para el proyecto */
+/**
+ * Poner los botones que solo esten los iconos no como botones.
+ * 
+ * Los alimentos que esten sin fondo como si fuera .png
+ * 
+ * Modificar fondo del header, que el color se uno suave y que el color principal lo tenga la marca
+   y el enlace activo.
+ * 
+ * Cuando de click a agregar producto y ya exista, hacer que haga un pequeño movimiento el boton y 
+ * que se quede seleccionado
+ * 
+ * 
 */
