@@ -1,5 +1,6 @@
 :root {
   --main-bg-color: #016fb9;
+  --body-bg-color: #f3f5f5;
   --secondary-color: rgb(130, 130, 133);
   --red-counter-color: #ff3a6bec;
   --favorite-product-color: #b90101;
@@ -16,7 +17,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #f3f5f5;
+  background: var(body-bg-color);
 }
 
 header {
@@ -246,15 +247,48 @@ ul li:before {
   margin-left: 10px;
 }
 
-.favorites-detail{
-  background: rgba(255, 255, 255, .1);
-  display: flex;
-  /* position: relative;
-  float: left; */
+.modal-container{
+  width: 18%;
+  margin: 20px 0;
+  position:fixed;
+  z-index: 1;
 }
 
-.favorites-detail .image img{
-  width: 50px;
+.product-in-cart{
+  display: flex;
+  position:relative;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.8);;
+  color: #000;
+  border-radius: 5px;
+  padding: 30px 20px;
+}
+
+.product-in-cart .image img{
+  width: 40px;
   border-radius: 50%;
   vertical-align: top;
+}
+
+.product-in-cart .description .options{
+  float: right;
+}
+
+.product-in-cart .description .options span{
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+.product-in-cart .description .options #shop-in-cart{
+  color: #0365a7;
+}
+
+.product-in-cart .description .options #remove-in-cart{
+  color: var(--favorite-product-color);
+}
+
+.product-in-cart .description .description-product,
+.product-in-cart .description .price{
+  font-weight: 500;
+  font-size: 14px;
 }

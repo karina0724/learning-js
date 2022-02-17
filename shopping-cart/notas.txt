@@ -1,0 +1,8 @@
+max-width: 1000px; 
+  /**
+   * ? por que si quito el max-width no se centra el elemento?  
+ */
+  margin: auto;
+  position:relative;
+  top: 15vh;
+  z-index: 1; /** puse el z-index porque la propiedad opacity de las imagenes estaba dandole transparencia al contenedor */

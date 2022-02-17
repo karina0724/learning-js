@@ -68,7 +68,7 @@ const getPhotos = (images) => {
         }) 
 }
 
-export async function pexelsApi(search, quantity=10){
+export async function pexelsApi(search, quantity=20){
     await fetch(`https://api.pexels.com/v1/search?query=${search}&per_page=${quantity}`,{
         headers: {
           Authorization: "563492ad6f91700001000001c9529b304f5d4f93b814f807ebaf9860"
