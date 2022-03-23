@@ -258,16 +258,25 @@ ul li:before {
   display: flex;
   position:relative;
   gap: 20px;
-  background: rgba(255, 255, 255, 0.8);;
+  background: rgba(255, 255, 255, 0.8);
   color: #000;
   border-radius: 5px;
   padding: 30px 20px;
+  cursor: pointer;
+}
+
+.product-in-cart:hover{
+  background: greenyellow;
 }
 
 .product-in-cart .image img{
   width: 40px;
   border-radius: 50%;
   vertical-align: top;
+}
+
+.product-in-cart .description{
+  line-height: 18px;
 }
 
 .product-in-cart .description .options{

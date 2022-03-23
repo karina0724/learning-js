@@ -1,118 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    
-     <!-- STYLES -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Supermercado Kari</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1><a href="index.html">Supermercado Kari</a></h1>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="#">Sobre nosotros</a>
-            <a href="#">Productos</a>
-            <div class="counter-products">
-                <div class="shopping-car">
-                    <span class="car"><i class="fas fa-shopping-cart"></i></span>
-                    <span class="items-to-shop" id="quantity-products-shop">0</span>
-                    <div class="modal-container">
-                        <div class="products-in-cart">
-                            <section class="product-in-cart" id="favorites-detail">
-                                <div class="image">
-                                    <img src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg" alt="">
-                                </div>
-                                <div class="description">
-                                    <p class="description-product">Brown Food on Black Frying</p>
-                                    <p class="price">RD$ 100.00</p>
-                                    <div class="options">
-                                        <span id="shop-in-cart"><i class="fas fa-shopping-cart"></i></span>
-                                        <span id="remove-in-cart"><i class="fas fa-minus-circle"></i></span>  
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="product-in-cart" id="favorites-detail">
-                                <div class="image">
-                                    <img src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg" alt="">
-                                </div>
-                                <div class="description">
-                                    <p class="description-product">Brown Food on Black Frying</p>
-                                    <p class="price">RD$ 100.00</p>
-                                    <div class="options">
-                                        <span id="shop-in-cart"><i class="fas fa-shopping-cart"></i></span>
-                                        <span id="remove-in-cart"><i class="fas fa-minus-circle"></i></span>  
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="product-in-cart" id="favorites-detail">
-                                <div class="image">
-                                    <img src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg" alt="">
-                                </div>
-                                <div class="description">
-                                    <p class="description-product">Brown Food on Black Frying</p>
-                                    <p class="price">RD$ 100.00</p>
-                                    <div class="options">
-                                        <span id="shop-in-cart"><i class="fas fa-shopping-cart"></i></span>
-                                        <span id="remove-in-cart"><i class="fas fa-minus-circle"></i></span>  
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="product-in-cart" id="favorites-detail">
-                                <div class="image">
-                                    <img src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg" alt="">
-                                </div>
-                                <div class="description">
-                                    <p class="description-product">Brown Food on Black Frying</p>
-                                    <p class="price">RD$ 100.00</p>
-                                    <div class="options">
-                                        <span id="shop-in-cart"><i class="fas fa-shopping-cart"></i></span>
-                                        <span id="remove-in-cart"><i class="fas fa-minus-circle"></i></span>  
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="product-in-cart" id="favorites-detail">
-                                <div class="image">
-                                    <img src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg" alt="">
-                                </div>
-                                <div class="description">
-                                    <p class="description-product">Brown Food on Black Frying</p>
-                                    <p class="price">RD$ 100.00</p>
-                                    <div class="options">
-                                        <span id="shop-in-cart"><i class="fas fa-shopping-cart"></i></span>
-                                        <span id="remove-in-cart"><i class="fas fa-minus-circle"></i></span>  
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="product-in-cart" id="favorites-detail">
-                                <div class="image">
-                                    <img src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg" alt="">
-                                </div>
-                                <div class="description">
-                                    <p class="description-product">Brown Food on Black Frying</p>
-                                    <p class="price">RD$ 100.00</p>
-                                    <div class="options">
-                                        <span id="shop-in-cart"><i class="fas fa-shopping-cart"></i></span>
-                                        <span id="remove-in-cart"><i class="fas fa-minus-circle"></i></span>  
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
+      <h1><a href="index.html">Supermercado Kari</a></h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#">Sobre nosotros</a>
+        <a href="#">Productos</a>
+        <div class="counter-products">
+          <div class="shopping-car">
+            <span class="car"><i class="fas fa-shopping-cart"></i></span>
+            <span class="items-to-shop" id="quantity-products-shop">0</span>
+            <div class="modal-container">
+              <div class="products-in-cart">
+                <section class="product-in-cart" id="favorites-detail">
+                  <div class="image">
+                    <img
+                      src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="description">
+                    <p class="description-product">
+                      Brown Food on Black Frying
+                    </p>
+                    <p class="price">RD$ 100.00</p>
+                    <div class="options">
+                      <span id="shop-in-cart"
+                        ><i class="fas fa-shopping-cart"></i
+                      ></span>
+                      <span id="remove-in-cart"
+                        ><i class="fas fa-minus-circle"></i
+                      ></span>
                     </div>
-                </div>
-                <div class="favorite-products">
-                    <span class="heart"><i class="fas fa-heart"></i></span>
-                    <span class="favorites-items" id="quantity-favorite-products">0</span>
-                    <!-- <div class="modal-container">
+                  </div>
+                </section>
+                
+                <section class="product-in-cart" id="favorites-detail">
+                  <div class="image">
+                    <img
+                      src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="description">
+                    <p class="description-product">
+                      Brown Food on Black Frying
+                    </p>
+                    <p class="price">RD$ 100.00</p>
+                    <div class="options">
+                      <span id="shop-in-cart"
+                        ><i class="fas fa-shopping-cart"></i
+                      ></span>
+                      <span id="remove-in-cart"
+                        ><i class="fas fa-minus-circle"></i
+                      ></span>
+                    </div>
+                  </div>
+                </section>
+                <section class="product-in-cart" id="favorites-detail">
+                  <div class="image">
+                    <img
+                      src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="description">
+                    <p class="description-product">
+                      Brown Food on Black Frying
+                    </p>
+                    <p class="price">RD$ 100.00</p>
+                    <div class="options">
+                      <span id="shop-in-cart"
+                        ><i class="fas fa-shopping-cart"></i
+                      ></span>
+                      <span id="remove-in-cart"
+                        ><i class="fas fa-minus-circle"></i
+                      ></span>
+                    </div>
+                  </div>
+                </section>
+                <section class="product-in-cart" id="favorites-detail">
+                  <div class="image">
+                    <img
+                      src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="description">
+                    <p class="description-product">
+                      Brown Food on Black Frying
+                    </p>
+                    <p class="price">RD$ 100.00</p>
+                    <div class="options">
+                      <span id="shop-in-cart"
+                        ><i class="fas fa-shopping-cart"></i
+                      ></span>
+                      <span id="remove-in-cart"
+                        ><i class="fas fa-minus-circle"></i
+                      ></span>
+                    </div>
+                  </div>
+                </section>
+                <section class="product-in-cart" id="favorites-detail">
+                  <div class="image">
+                    <img
+                      src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="description">
+                    <p class="description-product">
+                      Brown Food on Black Frying
+                    </p>
+                    <p class="price">RD$ 100.00</p>
+                    <div class="options">
+                      <span id="shop-in-cart"
+                        ><i class="fas fa-shopping-cart"></i
+                      ></span>
+                      <span id="remove-in-cart"
+                        ><i class="fas fa-minus-circle"></i
+                      ></span>
+                    </div>
+                  </div>
+                </section>
+                <section class="product-in-cart" id="favorites-detail">
+                  <div class="image">
+                    <img
+                      src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="description">
+                    <p class="description-product">
+                      Brown Food on Black Frying
+                    </p>
+                    <p class="price">RD$ 100.00</p>
+                    <div class="options">
+                      <span id="shop-in-cart"
+                        ><i class="fas fa-shopping-cart"></i
+                      ></span>
+                      <span id="remove-in-cart"
+                        ><i class="fas fa-minus-circle"></i
+                      ></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="favorite-products">
+            <span class="heart"><i class="fas fa-heart"></i></span>
+            <span class="favorites-items" id="quantity-favorite-products"
+              >0</span
+            >
+            <!-- <div class="modal-container">
                         <section class="favorites-detail" id="favorites-detail">
                             <div class="image">
                                 <img src="img/ameen-fahmy-_gEKtyIbRSM-unsplash.jpg" alt="">
@@ -124,29 +189,28 @@
                             </div>
                         </section>
                     </div> -->
-                </div>
-            </div>
-        </nav>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
-        <section class="categories">
-            <h3 class="title">Categorias</h3>
-            <ul class="categories-list">
-                <li id="frutas" class="category">Frutas y Vegetales</li>
-                <li id="cereales" class="category">Lácteos y Cereales</li>
-                <li id="jugos" class="category">Bebidas</li>
-                <li id="postres" class="category">Panaderia y Reposteria</li>
-                <li id="carne" class="category">Carnes</li>
-            </ul>
-        </section>
-        <section class="current-category">
-            <h3 class="title" id="category-name"></h3>
-            <div class="products">
-            </div>
-        </section>
+      <section class="categories">
+        <h3 class="title">Categorias</h3>
+        <ul class="categories-list">
+          <li id="frutas" class="category">Frutas y Vegetales</li>
+          <li id="cereales" class="category">Lácteos y Cereales</li>
+          <li id="jugos" class="category">Bebidas</li>
+          <li id="postres" class="category">Panaderia y Reposteria</li>
+          <li id="carne" class="category">Carnes</li>
+        </ul>
+      </section>
+      <section class="current-category">
+        <h3 class="title" id="category-name"></h3>
+        <div class="products"></div>
+      </section>
     </main>
     <footer></footer>
-    
+
     <script src="js/app.js" type="module"></script>
-</body>
+  </body>
 </html>
