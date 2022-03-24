@@ -2,6 +2,8 @@
 const containerProducts = document.querySelector(".products");
 const categoryName = document.getElementById('category-name');
 const categories = Array.from(document.getElementsByClassName("category"));
+const productInCart = Array.from(document.getElementsByClassName("product-in-cart"));
+const viweMoreInCart = document.getElementById("view-more-in-cart"); 
 let addCarButton = [],
     productsCar = [],
     addFavoriteEventButton = [],
@@ -10,7 +12,7 @@ let addCarButton = [],
 let carQuantity = document.getElementById('quantity-products-shop'),
     favoritesQuantity = document.getElementById('quantity-favorite-products');
     
-////UPLOAD AND SHOW PHOTOS FROM PEXELS API
+//UPLOAD AND SHOW PHOTOS FROM PEXELS API
 const getPhotos = (images) => {
         let imageTag = "";
         images.map(image => {
@@ -131,6 +133,13 @@ function addFavoriteProduct(product){
     }
     favoritesQuantity.innerText = favoritesProducts.length;
     console.log(favoritesProducts);
+}
+
+
+//STYLES CSS
+
+if(productInCart.length > 2){
+    viweMoreInCart.style.visibility = "visibility";
 }
 
 /** Requisitos a tomar en cuenta */
