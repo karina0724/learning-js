@@ -142,6 +142,8 @@ if(productInCart.length > 2){
     viweMoreInCart.style.visibility = "visibility";
 }
 
+document.getElementById("modal-shopping-cart")
+
 /** Requisitos a tomar en cuenta */
 /**
   * Buscar una manera de tomar el product id y ponerlo general en cada input
