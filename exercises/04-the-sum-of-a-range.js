@@ -29,17 +29,15 @@ console.log(sumOfRange(1, 10));
 
 //sum of range with step
 const sumOfRangeWithStep = (start, end, step = 1) => {
-    if(start > end){
-        let range = [];
-        for(let i = end; i >= start; i = i + step) range.push(i);
-        return range;
-    }
-
     let range = [];
-    for(let i = start; i <= end; i = i + step) range.push(i);
+    step = Math.abs(step);
+
+    if(start > end) for(let i = start; i >= end; i = i - step) range.push(i);
+    else for(let i = start; i <= end; i = i + step) range.push(i);
+    
     return range;
 }
-console.log(sumOfRangeWithStep(1, 10, 2));
+console.log(sumOfRangeWithStep(5, 2, -1));
 
 //sum
 const sum = (arr) => arr.reduce((acc, curr) => acc + curr);
