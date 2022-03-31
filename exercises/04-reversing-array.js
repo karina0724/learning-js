@@ -25,12 +25,7 @@ console.log(arrayReverse(["A", "B", "C"]));
 
 let valorArray = [1, 2, 3, 4, 5];
 const revertirArrayEnSuLugar = (arr) => {
-    for(let i = arr.length - 1, j = 0; i >= 0; i--, j++){
-        tmp = arr[i]
-        console.log(i);
-        arr[i] = arr[j];
-        arr.splice(i, 1, arr[i]);
-    }
+    for(let i = 0; i < arr.length; i++) arr.splice(i, 0, arr.pop())
     return arr;
 }
 revertirArrayEnSuLugar(valorArray);
