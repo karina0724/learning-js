@@ -9,16 +9,14 @@ elemento.
 
 Si aún no lo has hecho, también escribe una versión recursiva de posicion.
 
-// Tu código aquí.
-
 console.log(arrayALista([10, 20]));
-// → {valor: 10, resto: {valor: 20, resto: null}}
+    → {valor: 10, resto: {valor: 20, resto: null}}
 console.log(listaAArray(arrayALista([10, 20, 30])));
-// → [10, 20, 30]
+    → [10, 20, 30]
 console.log(preceder(10, preceder(20, null)));
-// → {valor: 10, resto: {valor: 20, resto: null}}
+    → {valor: 10, resto: {valor: 20, resto: null}}
 console.log(posicion(arrayALista([10, 20, 30]), 1));
-// → 20
+    → 20
 */
 
 let test = {
@@ -31,18 +29,13 @@ let test = {
 
 const arrayToList  = (arr) => {
     let json = {};
-    for(let i = 0; i < arr.length; i++){
-        json['valor'] = arr[i];
-        console.log(arr[i+1]);
-        json['resto'] = arr[i+1] == undefined ? "Hola" : null;
+    for(let i = 1; i <= arr.length; i++){
+        json['valor'] = arr[i-1];
+        json['resto'] = arr[i] == undefined ? null : arrayToList(arr.splice(i));
     }
     return json;
 }
+console.log(arrayToList([10, 20, 30]));
 
-test2 = [10,20];
-console.log(test2.splice(1))
 
-console.log(arrayToList([10, 20]));
-
-const listToArray = () => {
-}
+const listToArray = () => {}
