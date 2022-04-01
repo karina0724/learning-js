@@ -19,23 +19,33 @@ console.log(posicion(arrayALista([10, 20, 30]), 1));
     → 20
 */
 
-let test = {
-    valor: 10, 
-    resto: {
-        valor: 20, 
-        resto: null
-    }
-}
-
 const arrayToList  = (arr) => {
     let json = {};
     for(let i = 1; i <= arr.length; i++){
-        json['valor'] = arr[i-1];
-        json['resto'] = arr[i] == undefined ? null : arrayToList(arr.splice(i));
+        json['value'] = arr[i-1];
+        json['rest'] = arr[i] == undefined ? null : arrayToList(arr.splice(i));
     }
     return json;
 }
 console.log(arrayToList([10, 20, 30]));
 
+let list = {
+    value: 10, 
+    rest: {
+        value: 20,
+        rest: {
+            value: 30,
+            rest: null
+        }
+    }
+}
 
-const listToArray = () => {}
+const listToArray = (list) => {
+    let array = [];
+    for (let nodo = list; nodo; nodo = nodo.rest) {
+       array.push(nodo.value);
+    }
+    return array;
+}
+console.log(listToArray(list));
+
