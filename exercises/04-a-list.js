@@ -52,3 +52,11 @@ const listToArray = (list) => {
 }
 console.log(listToArray(list));
 
+const prepend = (element, list) => {return {value:element, rest:list} };
+console.log(prepend(80, prepend(20, null)));
+
+const nth = (list, position) => listToArray(list)[position] ;
+console.log(nth(arrayToList([10,20,30]), 1));
+
+//link to function deepMergeFlatten, flatten an object
+//https://atomizedobjects.com/blog/javascript/how-to-merge-two-objects-in-javascript/#:~:text=The%20easiest%20way%20to%20merge,merged%20into%20the%20parent%20object.

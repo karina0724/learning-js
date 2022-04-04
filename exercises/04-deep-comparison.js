@@ -12,6 +12,35 @@ La función Object.keys será útil para cuando necesites revisar las propiedade
 compararlos.
 */
 
-const deepComparison = (a, b) => {
-    
+let objeto = {
+    aqui: {
+        hay: "un"
+    },
+    objeto: 2
+};
+
+const deepEqual = function (a, b) {
+  if(a === null || b === null) return false;
+  if(a === b) return true;
+
+  if(typeof a === "object" && !Array.isArray(a) && typeof b === "object" && !Array.isArray(b)){
+    let aKeys = Object.keys(a),
+        bKeys = Object.keys(b);
+        
+    for(let i = 0; i < aKeys.length; i++){
+        if(aKeys[i] == bKeys[i]) {
+            console.log(aKeys)
+            if(typeof a[aKeys[i]] === "object" && typeof a[aKeys[i]] === "object") {
+                
+                deepEqual(a[aKeys[i]]);
+            }  
+        }
+        else return false;
+    }
+  } 
+  return false;
 }
+console.log(deepEqual(objeto, objeto));
+console.log(deepEqual(objeto, {aqui: 1, object: 2}));
+console.log(deepEqual(objeto, {aqui: {hay: "un"}, objeto: 2}));
+console.log(deepEqual(objeto, {aqui: {hay: "un"}, objeto: 3}));
