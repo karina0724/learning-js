@@ -20,26 +20,27 @@ let objeto = {
 };
 
 const deepEqual = function (a, b) {
-  if(a === null || b === null) return false;
-  if(a === b) return true;
+    if(a === null || b === null) return false;
+    if(a === b) return true;
 
-  if(typeof a === "object" && !Array.isArray(a) && typeof b === "object" && !Array.isArray(b)){
-    let aKeys = Object.keys(a),
-        bKeys = Object.keys(b);
-        
-    for(let i = 0; i < aKeys.length; i++){
-        if(aKeys[i] == bKeys[i]) {
-            console.log(aKeys)
-            if(typeof a[aKeys[i]] === "object" && typeof a[aKeys[i]] === "object") {
+    let equal = false;
+    if(typeof a === "object" && !Array.isArray(a) && typeof b === "object" && !Array.isArray(b)){
+        let bKeys = Object.keys(b);
+        let aKeys = Object.keys(a);
+
+        for(let i = 0; i < bKeys.length; i++){
+            if(aKeys[i] == bKeys[i]) {
+                if(typeof a[bKeys[i]] === "object" && a[bKeys[i]] !== null && typeof b[bKeys[i]] === "object" && b[bKeys[i]] !== null) equal = deepEqual(a[aKeys[i]], b[bKeys[i]]) 
+                    else equal = a[aKeys[i]] === b[bKeys[i]]; 
                 
-                deepEqual(a[aKeys[i]]);
-            }  
+                if(!equal) return false; 
+            }
+            else return false;
         }
-        else return false;
-    }
-  } 
-  return false;
+    } 
+    return equal;
 }
+
 console.log(deepEqual(objeto, objeto));
 console.log(deepEqual(objeto, {aqui: 1, object: 2}));
 console.log(deepEqual(objeto, {aqui: {hay: "un"}, objeto: 2}));
