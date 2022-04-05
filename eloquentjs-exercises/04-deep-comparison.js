@@ -30,7 +30,8 @@ const deepEqual = function (a, b) {
 
         for(let i = 0; i < bKeys.length; i++){
             if(aKeys[i] == bKeys[i]) {
-                if(typeof a[bKeys[i]] === "object" && a[bKeys[i]] !== null && typeof b[bKeys[i]] === "object" && b[bKeys[i]] !== null) equal = deepEqual(a[aKeys[i]], b[bKeys[i]]) 
+                if(typeof a[bKeys[i]] === "object" && a[bKeys[i]] !== null && typeof b[bKeys[i]] === "object" && b[bKeys[i]] !== null) 
+                equal = deepEqual(a[aKeys[i]], b[bKeys[i]]) 
                     else equal = a[aKeys[i]] === b[bKeys[i]]; 
                 
                 if(!equal) return false; 
