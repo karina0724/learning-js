@@ -23,7 +23,9 @@ const everyWithLoop = (arr, test) => {
  console.log(everyWithLoop([], n => n < 10));
  
  const everyWithSome = (arr, test) => {
-    return arr.some(test);
+    let status = true;
+    arr.forEach(element => {if(![element].some(test)) status = false;});
+    return status;
  }
  
  console.log(everyWithSome([1, 3, 5], (n, index) => n < 10));
