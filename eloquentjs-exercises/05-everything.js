@@ -16,17 +16,13 @@
 const everyWithLoop = (arr, test) => {
     for(let i = 0; i < arr.length; i++) if(!test(arr[i])) return false;
     return true;
- }
+}
  
  console.log(everyWithLoop([1, 3, 5], n => n < 10));
  console.log(everyWithLoop([2, 4, 16], n => n < 10));
  console.log(everyWithLoop([], n => n < 10));
  
- const everyWithSome = (arr, test) => {
-    let status = true;
-    arr.forEach(element => {if(![element].some(test)) status = false;});
-    return status;
- }
+const everyWithSome = (arr, test) => !arr.some(x => !test(x));
  
  console.log(everyWithSome([1, 3, 5], (n, index) => n < 10));
  console.log(everyWithSome([2, 4, 16], n => n < 10));
