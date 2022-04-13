@@ -1180,12 +1180,6 @@ var SCRIPTS = [
   },
 */
 
-function repeat(n, action) {
-  for (let i = 0; i < n; i++) {
-    action(i);
-  }
-}
-
 function characterScript(code) {
   for (let script of SCRIPTS) {
     if (script.ranges.some(([from, to]) => {
@@ -1209,8 +1203,7 @@ function countBy(items, groupName) {
     }
   }
   return counts;
-}
-
+} 
 function textScripts(text) {
   let scripts = countBy(text, char => {
     let script = characterScript(char.codePointAt(0));
