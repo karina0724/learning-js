@@ -1,42 +1,4 @@
 /*
-Conjunto de datos de códigos
-Un área donde brillan las funciones de orden superior es en el procesamiento de datos. Para procesar datos,
-necesitaremos algunos datos reales. Este capítulo usara un conjunto de datos acerca de códigos—sistema de
-escrituras como Latin, Cirílico, o Arábico.
-
-Recuerdas Unicode del Capítulo 1, el sistema que asigna un número a cada carácter en el lenguaje escrito.
-La mayoría de estos carácteres están asociados a un código específico. El estandar contiene 140 codigos
-diferentes—81 de los cuales todavía están en uso hoy, y 59 que son históricos.
-
-Aunque solo puedo leer con fluidez los caracteres en Latin, aprecio el hecho de que las personas estan
-escribiendo textos en al menos 80 diferentes sistemas de escritura, muchos de los cuales ni siquiera reconocería.
-Por ejemplo, aquí está una muestra de escritura a mano en Tamil.
-
-Tamil handwriting
-El conjunto de datos de ejemplo contiene algunos piezas de información acerca de los 140 codigos definidos en
-Unicode. Este esta disponible en la caja de arena para este capítulo como la vinculación SCRIPTS. La vinculación
-contiene un array de objetos, cada uno de los cuales describe un codigo.
-
-{
-  name: "Coptic",
-  ranges: [[994, 1008], [11392, 11508], [11513, 11520]],
-  direction: "ltr",
-  year: -200,
-  living: false,
-  link: "https://en.wikipedia.org/wiki/Coptic_alphabet"
-}
-
-Tal objeto te dice el nombre del codigo, los rangos de Unicode asignados a él, la dirección en la que está escrito,
-la tiempo de origen (aproximado), si todavía está en uso, y un enlace a más información. La dirección en la que esta
-escrito puede ser "ltr" (left-to-right) para izquierda a derecha, "rtl" (right-to-left) para derecha a izquierda
-(la forma en que se escriben los textos en árabe y en hebreo), o "ttb" (top-to-bottom) para de arriba a abajo 
-como con la escritura de Mongolia).
-
-La propiedad ranges contiene un array de rangos de caracteres Unicode, cada uno de los cuales es un array
-de dos elementos que contiene límites inferior y superior. Se asignan los códigos de caracteres dentro 
-de estos rangos al codigo. El limite más bajo es inclusivo (el código 994 es un carácter Copto) y el límite
-superior es no-inclusivo (el código 1008 no lo es).
-
 Write a function that computes the dominant writing direction in a string of text. Remember that each
 script object has a direction property that can be "ltr" (left to right), "rtl" (right to left), or
 "ttb" (top to bottom).
@@ -1204,23 +1166,21 @@ function countBy(items, groupName) {
   }
   return counts;
 } 
-function textScripts(text) {
+
+const dominantDirection = text => {
   let scripts = countBy(text, char => {
     let script = characterScript(char.codePointAt(0));
-    return script ? script.name : "none";
+    return script ? script.direction : "none";
   }).filter(({name}) => name != "none");
 
   let total = scripts.reduce((n, {count}) => n + count, 0);
   if (total == 0) return "No scripts found";
 
-  return scripts.map(({name, count}) => {
-    return `${Math.round(count * 100 / total)}% ${name}`;
-  }).join(", ");
-}
-
-const dominantDirection = text => {
-return
+  let max = scripts.reduce((a, b) => a.count > b.count ? a : b);
+  return max.name;
 }
 
 console.log(dominantDirection("Hello!"));
 console.log(dominantDirection("Hey, مساء الخير"));
+
+/* ESTAS FUNCIONES NO FUERON CREADAS POR MI */
