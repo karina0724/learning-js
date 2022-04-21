@@ -18,3 +18,26 @@ console.log(new Vector(1, 2).menos(new Vector(2, 3)));
 console.log(new Vector(3, 4).longitud);
     → 5
 */
+
+class Vector {
+    constructor (x, y){
+        this.x = x;
+        this.y = y;
+    }
+
+    mas(vector){
+        return new Vector(this.x + vector.x, this.y + vector.y);
+    }
+
+    menos(vector){
+        return new Vector(this.x - vector.x, this.y - vector.y);
+    }
+
+    get longitud (){
+        return Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+} 
+
+console.log(new Vector(1, 2).mas(new Vector(2, 3)));
+console.log(new Vector(1, 2).menos(new Vector(2, 3)));
+console.log(new Vector(3, 4).longitud);
