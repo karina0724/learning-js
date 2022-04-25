@@ -10,3 +10,58 @@ frustra el propósito de este ejercicio.
 Está bien si tu iterador se comporta de manera extraña cuando el conjunto es modificado
 durante la iteración.
 */
+
+class Group {
+    constructor () {
+      this.set = [];
+    }
+
+    add (element) {
+        if(!this.set.includes(element)) this.set.push(element);
+    }
+
+    delete (element) {
+        if(this.set.includes(element)) {
+            this.set = this.set.filter(e => e !== element);
+        } 
+    }
+
+    has (element) {
+       return this.set.includes(element);
+    }
+
+    static from (iterable) {
+        let newGroup = new Group();
+        for (const iterator of iterable) {
+            newGroup.add(iterator);
+        }
+        return newGroup;
+    }
+
+    [Symbol.iterator]() {
+        return new GroupIterator(this.set);
+    }
+}
+
+class GroupIterator{
+   curr_position = 0;
+
+    next() {
+        if(this.curr_position < this.group.set.length) {
+            let result = {value: this.group.set[this.curr_position], done: false};
+            this.curr_position++;
+            return result;
+        } else {
+            return {done: true};
+        }
+    }
+
+    [Symbol.iterator]() {
+        return this;
+    }
+
+    constructor(group) {    
+        this.group = group;
+    }           
+
+}
