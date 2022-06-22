@@ -19,7 +19,7 @@ let objeto = {
     objeto: 2
 };
 
-const deepEqual = function (a, b) {
+const deepEqual = (a, b) => {
     if(a === null || b === null) return false;
     if(a === b) return true;
 
