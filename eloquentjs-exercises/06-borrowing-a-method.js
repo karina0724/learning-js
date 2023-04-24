@@ -14,3 +14,6 @@ let mapa = {uno: true, dos: true, hasOwnProperty: true};
 console.log(mapa.hasOwnProperty("uno"));
     → true
 */
+
+let mapa = {uno: true, dos: true, hasOwnProperty: true};
+console.log(Object.prototype.hasOwnProperty.call(mapa, "uno"));
